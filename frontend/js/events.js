@@ -1,14 +1,8 @@
-// ==========================================================================
-// AURAPAPER — EVENTS & KEYBOARD MODULE
-// ==========================================================================
-
 import { state, dom } from './state.js';
 import { handleImageFile, renderCanvas } from './canvas.js';
 import { saveHistory, undoAction, redoAction } from './history.js';
 import { toggleWorkspaceGrid } from '../app.js';
-
 export function initEventListeners() {
-    // Dropzone
     dom.dropzone.addEventListener('click', () => dom.imageInput.click());
     dom.dropzone.addEventListener('dragover', (e) => { 
         e.preventDefault(); 
@@ -29,8 +23,6 @@ export function initEventListeners() {
             handleImageFile(e.target.files[0]);
         }
     });
-
-    // Sliders
     Object.keys(dom.sliders).forEach(key => {
         dom.sliders[key].addEventListener('input', (e) => {
             const val = e.target.value;
@@ -39,55 +31,46 @@ export function initEventListeners() {
             else if (key === 'hue') displayVal += '°';
             else displayVal += '%';
             dom.sliderVals[key].innerText = displayVal;
-
             let stateKey = key === 'hue' ? 'hueRotate' : key;
             state.filters[stateKey] = parseInt(val);
             renderCanvas();
         });
         dom.sliders[key].addEventListener('change', () => saveHistory());
     });
-
-    // Text controls
     dom.textInput.addEventListener('input', (e) => { 
         state.text.content = e.target.value; 
         renderCanvas(); 
     });
     dom.textInput.addEventListener('change', () => saveHistory());
-    
     dom.textFont.addEventListener('change', (e) => { 
         state.text.font = e.target.value; 
         renderCanvas(); 
         saveHistory(); 
     });
-    
     dom.textSize.addEventListener('input', (e) => { 
         state.text.size = parseInt(e.target.value); 
         dom.valTextSize.innerText = state.text.size + 'px'; 
         renderCanvas(); 
     });
     dom.textSize.addEventListener('change', () => saveHistory());
-    
     dom.textColor.addEventListener('input', (e) => { 
         state.text.color = e.target.value; 
         dom.textColorHex.innerText = e.target.value; 
         renderCanvas(); 
     });
     dom.textColor.addEventListener('change', () => saveHistory());
-    
     dom.textShadowColor.addEventListener('input', (e) => { 
         state.text.shadowColor = e.target.value; 
         dom.textShadowHex.innerText = e.target.value; 
         renderCanvas(); 
     });
     dom.textShadowColor.addEventListener('change', () => saveHistory());
-    
     dom.textY.addEventListener('input', (e) => { 
         state.text.y = parseInt(e.target.value); 
         dom.valTextY.innerText = state.text.y + '%'; 
         renderCanvas(); 
     });
     dom.textY.addEventListener('change', () => saveHistory());
-    
     dom.textX.addEventListener('input', (e) => { 
         state.text.x = parseInt(e.target.value); 
         dom.valTextX.innerText = state.text.x + '%'; 
@@ -95,7 +78,6 @@ export function initEventListeners() {
     });
     dom.textX.addEventListener('change', () => saveHistory());
 }
-
 export function initKeyboardShortcuts() {
     document.addEventListener('keydown', (e) => {
         if (e.ctrlKey && e.key === 'z') { e.preventDefault(); undoAction(); }
