@@ -1,0 +1,48 @@
+<section class="workspace-area" id="workspace-area">
+    <!-- Loading overlay -->
+    <div class="canvas-loading" id="canvas-loading">
+        <div class="spinner"></div>
+        <span>Memproses...</span>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="notification-toast" id="notification-toast">
+        <i class="fa-solid fa-circle-check toast-icon"></i>
+        <span id="toast-message">Berhasil!</span>
+    </div>
+
+    <!-- Canvas Preview -->
+    <div class="canvas-card">
+        <div class="canvas-container" id="canvas-container">
+            <canvas id="wallpaper-canvas"></canvas>
+        </div>
+    </div>
+
+    <!-- Bottom Toolbar -->
+    <div class="workspace-toolbar">
+        <div class="toolbar-left">
+            <span class="toolbar-badge" id="canvas-resolution-badge">
+                <i class="fa-solid fa-expand"></i> 1920 × 1080
+            </span>
+            <div class="toolbar-divider"></div>
+            <button class="toolbar-btn" onclick="undoAction()" title="Undo (Ctrl+Z)">
+                <i class="fa-solid fa-rotate-left"></i>
+            </button>
+            <button class="toolbar-btn" onclick="redoAction()" title="Redo (Ctrl+Y)">
+                <i class="fa-solid fa-rotate-right"></i>
+            </button>
+            <div class="toolbar-divider"></div>
+            <button class="toolbar-btn" onclick="fitCanvasView()" title="Fit to View">
+                <i class="fa-solid fa-maximize"></i> Fit
+            </button>
+        </div>
+        <div class="toolbar-right">
+            <button class="btn btn-ghost" id="btn-save-gallery" onclick="saveToGallery()">
+                <i class="fa-solid fa-cloud-arrow-up"></i> Simpan
+            </button>
+            <button class="btn btn-accent" id="btn-download" onclick="downloadDirect()">
+                <i class="fa-solid fa-download"></i> Download PNG
+            </button>
+        </div>
+    </div>
+</section>
