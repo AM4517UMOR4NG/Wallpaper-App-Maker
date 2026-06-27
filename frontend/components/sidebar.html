@@ -1,5 +1,4 @@
 <aside class="app-sidebar">
-    <!-- Navigation Tabs -->
     <nav class="sidebar-tabs" role="tablist">
         <button class="tab-btn active" id="tab-btn-media" onclick="switchTab('media')" role="tab" aria-selected="true">
             <i class="fa-solid fa-images"></i>
@@ -22,11 +21,8 @@
             <span>Galeri</span>
         </button>
     </nav>
-
-    <!-- TAB: Media -->
     <section class="tab-content active" id="tab-content-media" role="tabpanel">
         <div class="section-title"><i class="fa-solid fa-image"></i> Sumber Gambar</div>
-
         <div class="upload-dropzone" id="upload-dropzone">
             <div class="upload-dropzone-inner">
                 <div class="upload-icon-wrap">
@@ -41,7 +37,6 @@
                 <span class="upload-info">Mendukung PNG, JPG, WEBP — maks 15MB</span>
             </div>
         </div>
-
         <div class="section-title margin-top-lg"><i class="fa-solid fa-crop-simple"></i> Resolusi</div>
         <div class="preset-grid">
             <button class="preset-btn active" id="preset-desktop" onclick="setResolution(1920, 1080, 'preset-desktop')">
@@ -80,7 +75,6 @@
                 <span class="preset-val">3840 × 2160</span>
             </button>
         </div>
-
         <div class="section-title margin-top-lg"><i class="fa-solid fa-palette"></i> Template Gradien</div>
         <div class="template-gallery" id="template-gallery">
             <div class="template-item" style="background:linear-gradient(135deg,#0088ff,#00d4ff)" onclick="loadGradientPreset('#0088ff','#00d4ff')"></div>
@@ -97,8 +91,6 @@
             <div class="template-item" style="background:linear-gradient(135deg,#1cb5e0,#000851)" onclick="loadGradientPreset('#1cb5e0','#000851')"></div>
         </div>
     </section>
-
-    <!-- TAB: Filter -->
     <section class="tab-content" id="tab-content-adjust" role="tabpanel">
         <div class="section-header-row">
             <div class="section-title no-margin"><i class="fa-solid fa-wand-magic-sparkles"></i> Efek & Filter</div>
@@ -106,7 +98,6 @@
                 <i class="fa-solid fa-rotate-left"></i> Reset Semua
             </button>
         </div>
-
         <div class="control-group">
             <div class="control-label">
                 <span><i class="fa-solid fa-sun"></i> Kecerahan</span>
@@ -114,7 +105,6 @@
             </div>
             <input type="range" id="slider-brightness" min="0" max="200" value="100" class="styled-slider" data-filter="brightness">
         </div>
-
         <div class="control-group">
             <div class="control-label">
                 <span><i class="fa-solid fa-circle-half-stroke"></i> Kontras</span>
@@ -122,7 +112,6 @@
             </div>
             <input type="range" id="slider-contrast" min="0" max="200" value="100" class="styled-slider" data-filter="contrast">
         </div>
-
         <div class="control-group">
             <div class="control-label">
                 <span><i class="fa-solid fa-droplet"></i> Saturasi</span>
@@ -130,7 +119,6 @@
             </div>
             <input type="range" id="slider-saturate" min="0" max="200" value="100" class="styled-slider" data-filter="saturate">
         </div>
-
         <div class="control-group">
             <div class="control-label">
                 <span><i class="fa-solid fa-water"></i> Buram (Blur)</span>
@@ -138,7 +126,6 @@
             </div>
             <input type="range" id="slider-blur" min="0" max="50" value="0" class="styled-slider" data-filter="blur">
         </div>
-
         <div class="control-group">
             <div class="control-label">
                 <span><i class="fa-solid fa-rotate"></i> Hue Rotate</span>
@@ -146,7 +133,6 @@
             </div>
             <input type="range" id="slider-hue" min="0" max="360" value="0" class="styled-slider" data-filter="hue">
         </div>
-
         <div class="control-group">
             <div class="control-label">
                 <span><i class="fa-solid fa-fill"></i> Grayscale</span>
@@ -154,7 +140,6 @@
             </div>
             <input type="range" id="slider-grayscale" min="0" max="100" value="0" class="styled-slider" data-filter="grayscale">
         </div>
-
         <div class="control-group">
             <div class="control-label">
                 <span><i class="fa-solid fa-film"></i> Sepia</span>
@@ -163,14 +148,9 @@
             <input type="range" id="slider-sepia" min="0" max="100" value="0" class="styled-slider" data-filter="sepia">
         </div>
     </section>
-
-    <!-- TAB: FX (Special Effects) -->
     <section class="tab-content" id="tab-content-fx" role="tabpanel">
-
-        <!-- ===== 1. FILM GRAIN / NOISE ===== -->
         <div class="section-title"><i class="fa-solid fa-film"></i> Film Grain / Noise</div>
         <p class="fx-description">Tambahkan tekstur noise sinematik seperti film analog untuk nuansa premium.</p>
-
         <div class="control-group">
             <div class="fx-toggle-row">
                 <span class="fx-toggle-label"><i class="fa-solid fa-circle-dot"></i> Aktifkan Grain</span>
@@ -194,13 +174,9 @@
             </div>
             <input type="range" id="slider-grain-scale" min="1" max="4" value="1" class="styled-slider">
         </div>
-
         <div class="fx-divider"></div>
-
-        <!-- ===== 2. VIGNETTE ===== -->
         <div class="section-title"><i class="fa-solid fa-bullseye"></i> Vignette</div>
         <p class="fx-description">Efek gelap di tepi gambar untuk memberi fokus pada subjek utama wallpaper.</p>
-
         <div class="control-group">
             <div class="fx-toggle-row">
                 <span class="fx-toggle-label"><i class="fa-solid fa-circle-dot"></i> Aktifkan Vignette</span>
@@ -224,13 +200,9 @@
             </div>
             <input type="range" id="slider-vignette-radius" min="10" max="100" value="50" class="styled-slider">
         </div>
-
         <div class="fx-divider"></div>
-
-        <!-- ===== 3. BLEND MODE ===== -->
         <div class="section-title"><i class="fa-solid fa-layer-group"></i> Blend Mode (Self-Blend)</div>
         <p class="fx-description">Menggandakan dan mencampur gambar dengan dirinya sendiri (Self-Blend) untuk menghasilkan efek warna dan kontras dramatis ala Photoshop.</p>
-
         <div class="control-group">
             <label for="fx-blend-mode" class="input-label">Mode Pencampuran</label>
             <select id="fx-blend-mode" class="styled-select">
@@ -248,7 +220,6 @@
                 <option value="saturation">Saturation — Warna</option>
             </select>
         </div>
-
         <div class="blend-preview-grid" id="blend-preview-grid">
             <div class="blend-preview-item active" data-blend="source-over" onclick="setBlendMode('source-over')" title="Normal">
                 <span class="blend-icon"><i class="fa-solid fa-circle"></i></span><span>Normal</span>
@@ -269,18 +240,13 @@
                 <span class="blend-icon"><i class="fa-solid fa-shuffle"></i></span><span>Difference</span>
             </div>
         </div>
-
     </section>
-
-    <!-- TAB: Text -->
     <section class="tab-content" id="tab-content-text" role="tabpanel">
         <div class="section-title"><i class="fa-solid fa-heading"></i> Tambahkan Teks</div>
-
         <div class="control-group">
             <label for="text-input" class="input-label">Tulisan</label>
             <input type="text" id="text-input" placeholder="Ketik kata inspiratif..." class="styled-input" autocomplete="off">
         </div>
-
         <div class="control-group">
             <label for="text-font" class="input-label">Jenis Font</label>
             <select id="text-font" class="styled-select">
@@ -292,7 +258,6 @@
                 <option value="Arial">Arial — Klasik</option>
             </select>
         </div>
-
         <div class="control-group">
             <div class="control-label">
                 <span>Ukuran Font</span>
@@ -300,7 +265,6 @@
             </div>
             <input type="range" id="slider-text-size" min="10" max="200" value="48" class="styled-slider">
         </div>
-
         <div class="color-picker-row">
             <div class="control-group flex-1">
                 <label class="input-label">Warna Teks</label>
@@ -317,7 +281,6 @@
                 </div>
             </div>
         </div>
-
         <div class="control-group">
             <div class="control-label">
                 <span>Posisi Vertikal (Y)</span>
@@ -325,7 +288,6 @@
             </div>
             <input type="range" id="slider-text-y" min="0" max="100" value="50" class="styled-slider">
         </div>
-
         <div class="control-group">
             <div class="control-label">
                 <span>Posisi Horizontal (X)</span>
@@ -334,8 +296,6 @@
             <input type="range" id="slider-text-x" min="0" max="100" value="50" class="styled-slider">
         </div>
     </section>
-
-    <!-- TAB: Gallery -->
     <section class="tab-content" id="tab-content-gallery" role="tabpanel">
         <div class="section-title"><i class="fa-solid fa-images"></i> Koleksi Karya</div>
         <p class="gallery-info-text">Wallpaper yang telah disimpan ke server Anda.</p>
