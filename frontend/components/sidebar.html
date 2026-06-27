@@ -1,0 +1,350 @@
+<aside class="app-sidebar">
+    <!-- Navigation Tabs -->
+    <nav class="sidebar-tabs" role="tablist">
+        <button class="tab-btn active" id="tab-btn-media" onclick="switchTab('media')" role="tab" aria-selected="true">
+            <i class="fa-solid fa-images"></i>
+            <span>Media</span>
+        </button>
+        <button class="tab-btn" id="tab-btn-adjust" onclick="switchTab('adjust')" role="tab" aria-selected="false">
+            <i class="fa-solid fa-sliders"></i>
+            <span>Filter</span>
+        </button>
+        <button class="tab-btn" id="tab-btn-fx" onclick="switchTab('fx')" role="tab" aria-selected="false">
+            <i class="fa-solid fa-wand-sparkles"></i>
+            <span>FX</span>
+        </button>
+        <button class="tab-btn" id="tab-btn-text" onclick="switchTab('text')" role="tab" aria-selected="false">
+            <i class="fa-solid fa-font"></i>
+            <span>Teks</span>
+        </button>
+        <button class="tab-btn" id="tab-btn-gallery" onclick="switchTab('gallery')" role="tab" aria-selected="false">
+            <i class="fa-solid fa-folder-open"></i>
+            <span>Galeri</span>
+        </button>
+    </nav>
+
+    <!-- TAB: Media -->
+    <section class="tab-content active" id="tab-content-media" role="tabpanel">
+        <div class="section-title"><i class="fa-solid fa-image"></i> Sumber Gambar</div>
+
+        <div class="upload-dropzone" id="upload-dropzone">
+            <div class="upload-dropzone-inner">
+                <div class="upload-icon-wrap">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                </div>
+                <p class="upload-heading">Seret & Lepas Gambar</p>
+                <p class="upload-text">atau klik untuk memilih file</p>
+                <label for="image-input" class="upload-btn-label">
+                    <i class="fa-solid fa-plus"></i> Pilih File
+                </label>
+                <input type="file" id="image-input" accept="image/*" class="file-input-hidden">
+                <span class="upload-info">Mendukung PNG, JPG, WEBP — maks 15MB</span>
+            </div>
+        </div>
+
+        <div class="section-title margin-top-lg"><i class="fa-solid fa-crop-simple"></i> Resolusi</div>
+        <div class="preset-grid">
+            <button class="preset-btn active" id="preset-desktop" onclick="setResolution(1920, 1080, 'preset-desktop')">
+                <div class="preset-left">
+                    <i class="fa-solid fa-desktop"></i>
+                    <span class="preset-name">Desktop FHD</span>
+                </div>
+                <span class="preset-val">1920 × 1080</span>
+            </button>
+            <button class="preset-btn" id="preset-2k" onclick="setResolution(2560, 1440, 'preset-2k')">
+                <div class="preset-left">
+                    <i class="fa-solid fa-tv"></i>
+                    <span class="preset-name">Desktop 2K</span>
+                </div>
+                <span class="preset-val">2560 × 1440</span>
+            </button>
+            <button class="preset-btn" id="preset-mobile" onclick="setResolution(1080, 1920, 'preset-mobile')">
+                <div class="preset-left">
+                    <i class="fa-solid fa-mobile-screen"></i>
+                    <span class="preset-name">Mobile</span>
+                </div>
+                <span class="preset-val">1080 × 1920</span>
+            </button>
+            <button class="preset-btn" id="preset-square" onclick="setResolution(1080, 1080, 'preset-square')">
+                <div class="preset-left">
+                    <i class="fa-solid fa-square"></i>
+                    <span class="preset-name">Instagram</span>
+                </div>
+                <span class="preset-val">1080 × 1080</span>
+            </button>
+            <button class="preset-btn" id="preset-ultra" onclick="setResolution(3840, 2160, 'preset-ultra')">
+                <div class="preset-left">
+                    <i class="fa-solid fa-display"></i>
+                    <span class="preset-name">Ultra HD 4K</span>
+                </div>
+                <span class="preset-val">3840 × 2160</span>
+            </button>
+        </div>
+
+        <div class="section-title margin-top-lg"><i class="fa-solid fa-palette"></i> Template Gradien</div>
+        <div class="template-gallery" id="template-gallery">
+            <div class="template-item" style="background:linear-gradient(135deg,#0088ff,#00d4ff)" onclick="loadGradientPreset('#0088ff','#00d4ff')"></div>
+            <div class="template-item" style="background:linear-gradient(135deg,#fc5c7d,#6a82fb)" onclick="loadGradientPreset('#fc5c7d','#6a82fb')"></div>
+            <div class="template-item" style="background:linear-gradient(135deg,#4facfe,#00f2fe)" onclick="loadGradientPreset('#4facfe','#00f2fe')"></div>
+            <div class="template-item" style="background:linear-gradient(135deg,#43e97b,#38f9d7)" onclick="loadGradientPreset('#43e97b','#38f9d7')"></div>
+            <div class="template-item" style="background:linear-gradient(135deg,#fa709a,#fee140)" onclick="loadGradientPreset('#fa709a','#fee140')"></div>
+            <div class="template-item" style="background:linear-gradient(135deg,#2193b0,#6dd5ed)" onclick="loadGradientPreset('#2193b0','#6dd5ed')"></div>
+            <div class="template-item" style="background:linear-gradient(135deg,#ffecd2,#fcb69f)" onclick="loadGradientPreset('#ffecd2','#fcb69f')"></div>
+            <div class="template-item" style="background:linear-gradient(135deg,#0c3483,#a2b6df)" onclick="loadGradientPreset('#0c3483','#a2b6df')"></div>
+            <div class="template-item" style="background:linear-gradient(135deg,#11998e,#38ef7d)" onclick="loadGradientPreset('#11998e','#38ef7d')"></div>
+            <div class="template-item" style="background:linear-gradient(135deg,#2d2d2d,#0a0a0a)" onclick="loadGradientPreset('#2d2d2d','#0a0a0a')"></div>
+            <div class="template-item" style="background:linear-gradient(135deg,#ee9ca7,#ffdde1)" onclick="loadGradientPreset('#ee9ca7','#ffdde1')"></div>
+            <div class="template-item" style="background:linear-gradient(135deg,#1cb5e0,#000851)" onclick="loadGradientPreset('#1cb5e0','#000851')"></div>
+        </div>
+    </section>
+
+    <!-- TAB: Filter -->
+    <section class="tab-content" id="tab-content-adjust" role="tabpanel">
+        <div class="section-header-row">
+            <div class="section-title no-margin"><i class="fa-solid fa-wand-magic-sparkles"></i> Efek & Filter</div>
+            <button class="text-link-btn" id="reset-filters-btn" onclick="resetFilters()">
+                <i class="fa-solid fa-rotate-left"></i> Reset Semua
+            </button>
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
+                <span><i class="fa-solid fa-sun"></i> Kecerahan</span>
+                <span class="control-value" id="val-brightness">100%</span>
+            </div>
+            <input type="range" id="slider-brightness" min="0" max="200" value="100" class="styled-slider" data-filter="brightness">
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
+                <span><i class="fa-solid fa-circle-half-stroke"></i> Kontras</span>
+                <span class="control-value" id="val-contrast">100%</span>
+            </div>
+            <input type="range" id="slider-contrast" min="0" max="200" value="100" class="styled-slider" data-filter="contrast">
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
+                <span><i class="fa-solid fa-droplet"></i> Saturasi</span>
+                <span class="control-value" id="val-saturate">100%</span>
+            </div>
+            <input type="range" id="slider-saturate" min="0" max="200" value="100" class="styled-slider" data-filter="saturate">
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
+                <span><i class="fa-solid fa-water"></i> Buram (Blur)</span>
+                <span class="control-value" id="val-blur">0px</span>
+            </div>
+            <input type="range" id="slider-blur" min="0" max="50" value="0" class="styled-slider" data-filter="blur">
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
+                <span><i class="fa-solid fa-rotate"></i> Hue Rotate</span>
+                <span class="control-value" id="val-hue">0°</span>
+            </div>
+            <input type="range" id="slider-hue" min="0" max="360" value="0" class="styled-slider" data-filter="hue">
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
+                <span><i class="fa-solid fa-fill"></i> Grayscale</span>
+                <span class="control-value" id="val-grayscale">0%</span>
+            </div>
+            <input type="range" id="slider-grayscale" min="0" max="100" value="0" class="styled-slider" data-filter="grayscale">
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
+                <span><i class="fa-solid fa-film"></i> Sepia</span>
+                <span class="control-value" id="val-sepia">0%</span>
+            </div>
+            <input type="range" id="slider-sepia" min="0" max="100" value="0" class="styled-slider" data-filter="sepia">
+        </div>
+    </section>
+
+    <!-- TAB: FX (Special Effects) -->
+    <section class="tab-content" id="tab-content-fx" role="tabpanel">
+
+        <!-- ===== 1. FILM GRAIN / NOISE ===== -->
+        <div class="section-title"><i class="fa-solid fa-film"></i> Film Grain / Noise</div>
+        <p class="fx-description">Tambahkan tekstur noise sinematik seperti film analog untuk nuansa premium.</p>
+
+        <div class="control-group">
+            <div class="fx-toggle-row">
+                <span class="fx-toggle-label"><i class="fa-solid fa-circle-dot"></i> Aktifkan Grain</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="fx-grain-enabled">
+                    <span class="toggle-track"></span>
+                </label>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                <span>Intensitas</span>
+                <span class="control-value" id="val-grain-intensity">30</span>
+            </div>
+            <input type="range" id="slider-grain-intensity" min="5" max="100" value="30" class="styled-slider">
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                <span>Ukuran Partikel</span>
+                <span class="control-value" id="val-grain-scale">1x</span>
+            </div>
+            <input type="range" id="slider-grain-scale" min="1" max="4" value="1" class="styled-slider">
+        </div>
+
+        <div class="fx-divider"></div>
+
+        <!-- ===== 2. VIGNETTE ===== -->
+        <div class="section-title"><i class="fa-solid fa-bullseye"></i> Vignette</div>
+        <p class="fx-description">Efek gelap di tepi gambar untuk memberi fokus pada subjek utama wallpaper.</p>
+
+        <div class="control-group">
+            <div class="fx-toggle-row">
+                <span class="fx-toggle-label"><i class="fa-solid fa-circle-dot"></i> Aktifkan Vignette</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="fx-vignette-enabled">
+                    <span class="toggle-track"></span>
+                </label>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                <span>Intensitas</span>
+                <span class="control-value" id="val-vignette-intensity">50%</span>
+            </div>
+            <input type="range" id="slider-vignette-intensity" min="10" max="100" value="50" class="styled-slider">
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                <span>Radius</span>
+                <span class="control-value" id="val-vignette-radius">50%</span>
+            </div>
+            <input type="range" id="slider-vignette-radius" min="10" max="100" value="50" class="styled-slider">
+        </div>
+
+        <div class="fx-divider"></div>
+
+        <!-- ===== 3. BLEND MODE ===== -->
+        <div class="section-title"><i class="fa-solid fa-layer-group"></i> Blend Mode (Self-Blend)</div>
+        <p class="fx-description">Menggandakan dan mencampur gambar dengan dirinya sendiri (Self-Blend) untuk menghasilkan efek warna dan kontras dramatis ala Photoshop.</p>
+
+        <div class="control-group">
+            <label for="fx-blend-mode" class="input-label">Mode Pencampuran</label>
+            <select id="fx-blend-mode" class="styled-select">
+                <option value="source-over">Normal</option>
+                <option value="multiply">Multiply — Gelap Dramatis</option>
+                <option value="screen">Screen — Cerah Lembut</option>
+                <option value="overlay">Overlay — Kontras Tinggi</option>
+                <option value="soft-light">Soft Light — Halus</option>
+                <option value="hard-light">Hard Light — Keras</option>
+                <option value="color-dodge">Color Dodge — Neon</option>
+                <option value="color-burn">Color Burn — Dalam</option>
+                <option value="difference">Difference — Abstrak</option>
+                <option value="exclusion">Exclusion — Pudar</option>
+                <option value="luminosity">Luminosity — Cahaya</option>
+                <option value="saturation">Saturation — Warna</option>
+            </select>
+        </div>
+
+        <div class="blend-preview-grid" id="blend-preview-grid">
+            <div class="blend-preview-item active" data-blend="source-over" onclick="setBlendMode('source-over')" title="Normal">
+                <span class="blend-icon"><i class="fa-solid fa-circle"></i></span><span>Normal</span>
+            </div>
+            <div class="blend-preview-item" data-blend="multiply" onclick="setBlendMode('multiply')" title="Multiply">
+                <span class="blend-icon"><i class="fa-solid fa-moon"></i></span><span>Multiply</span>
+            </div>
+            <div class="blend-preview-item" data-blend="screen" onclick="setBlendMode('screen')" title="Screen">
+                <span class="blend-icon"><i class="fa-solid fa-sun"></i></span><span>Screen</span>
+            </div>
+            <div class="blend-preview-item" data-blend="overlay" onclick="setBlendMode('overlay')" title="Overlay">
+                <span class="blend-icon"><i class="fa-solid fa-layer-group"></i></span><span>Overlay</span>
+            </div>
+            <div class="blend-preview-item" data-blend="soft-light" onclick="setBlendMode('soft-light')" title="Soft Light">
+                <span class="blend-icon"><i class="fa-solid fa-cloud-sun"></i></span><span>Soft Light</span>
+            </div>
+            <div class="blend-preview-item" data-blend="difference" onclick="setBlendMode('difference')" title="Difference">
+                <span class="blend-icon"><i class="fa-solid fa-shuffle"></i></span><span>Difference</span>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- TAB: Text -->
+    <section class="tab-content" id="tab-content-text" role="tabpanel">
+        <div class="section-title"><i class="fa-solid fa-heading"></i> Tambahkan Teks</div>
+
+        <div class="control-group">
+            <label for="text-input" class="input-label">Tulisan</label>
+            <input type="text" id="text-input" placeholder="Ketik kata inspiratif..." class="styled-input" autocomplete="off">
+        </div>
+
+        <div class="control-group">
+            <label for="text-font" class="input-label">Jenis Font</label>
+            <select id="text-font" class="styled-select">
+                <option value="Inter">Inter — Modern</option>
+                <option value="Space Grotesk">Space Grotesk — Tegas</option>
+                <option value="Poppins">Poppins — Bulat</option>
+                <option value="Playfair Display">Playfair — Elegan</option>
+                <option value="JetBrains Mono">JetBrains Mono — Kode</option>
+                <option value="Arial">Arial — Klasik</option>
+            </select>
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
+                <span>Ukuran Font</span>
+                <span class="control-value" id="val-text-size">48px</span>
+            </div>
+            <input type="range" id="slider-text-size" min="10" max="200" value="48" class="styled-slider">
+        </div>
+
+        <div class="color-picker-row">
+            <div class="control-group flex-1">
+                <label class="input-label">Warna Teks</label>
+                <div class="color-input-wrapper">
+                    <input type="color" id="text-color" value="#ffffff" class="styled-color">
+                    <span id="text-color-hex">#ffffff</span>
+                </div>
+            </div>
+            <div class="control-group flex-1">
+                <label class="input-label">Bayangan</label>
+                <div class="color-input-wrapper">
+                    <input type="color" id="text-shadow-color" value="#000000" class="styled-color">
+                    <span id="text-shadow-hex">#000000</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
+                <span>Posisi Vertikal (Y)</span>
+                <span class="control-value" id="val-text-y">50%</span>
+            </div>
+            <input type="range" id="slider-text-y" min="0" max="100" value="50" class="styled-slider">
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
+                <span>Posisi Horizontal (X)</span>
+                <span class="control-value" id="val-text-x">50%</span>
+            </div>
+            <input type="range" id="slider-text-x" min="0" max="100" value="50" class="styled-slider">
+        </div>
+    </section>
+
+    <!-- TAB: Gallery -->
+    <section class="tab-content" id="tab-content-gallery" role="tabpanel">
+        <div class="section-title"><i class="fa-solid fa-images"></i> Koleksi Karya</div>
+        <p class="gallery-info-text">Wallpaper yang telah disimpan ke server Anda.</p>
+        <div class="gallery-grid" id="saved-gallery-grid">
+            <div class="gallery-empty-state">
+                <i class="fa-regular fa-image empty-icon"></i>
+                <p>Belum ada karya tersimpan.</p>
+                <span class="empty-hint">Buat wallpaper pertamamu lalu simpan ke galeri!</span>
+            </div>
+        </div>
+    </section>
+</aside>

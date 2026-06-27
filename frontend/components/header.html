@@ -1,0 +1,40 @@
+<header class="app-header">
+    <div class="header-left">
+        <button class="sidebar-toggle-btn" onclick="toggleSidebar()" title="Toggle Sidebar (M)">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="header-divider-subtle"></div>
+        <div class="logo-area">
+            <div class="logo-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <h1 class="logo-text">Aura<span>Paper</span></h1>
+            <span class="pro-badge">STUDIO</span>
+        </div>
+    </div>
+
+    <div class="header-center">
+        <!-- Floating Toolbar -->
+        <div class="floating-toolbar">
+            <button class="tool-btn" onclick="toggleWorkspaceGrid()" id="btn-grid-toggle" title="Toggle Grid (G)">
+                <i class="fa-solid fa-border-all"></i>
+            </button>
+            <div class="tool-divider"></div>
+            <button class="tool-btn" onclick="resetFilters()" title="Reset Filters">
+                <i class="fa-solid fa-arrow-rotate-left"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="header-right">
+        <button class="header-icon-btn" title="Keyboard Shortcuts" onclick="showShortcutsInfo()">
+            <i class="fa-regular fa-keyboard"></i>
+        </button>
+        <div class="connection-status-minimal" id="connection-status" title="Status Koneksi">
+            <span class="status-dot offline" id="status-dot"></span>
+            <span id="status-label" style="display: none;">Menghubungkan...</span>
+        </div>
+        <div class="header-divider-subtle"></div>
+        <button class="header-icon-btn" onclick="toggleNavbar()" title="Sembunyikan Navbar (N)">
+            <i class="fa-solid fa-chevron-up"></i>
+        </button>
+    </div>
+</header>
