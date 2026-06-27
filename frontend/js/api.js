@@ -1,10 +1,5 @@
-// ==========================================================================
-// AURAPAPER — API SERVICE MODULE
-// ==========================================================================
-
 import { state, dom } from './state.js';
 import { showToast, showLoading } from './ui.js';
-
 export async function checkServerConnection() {
     try {
         const response = await fetch(`${state.backendUrl}/health`);
@@ -21,7 +16,6 @@ export async function checkServerConnection() {
         dom.statusLabel.innerText = 'Offline';
     }
 }
-
 export async function saveToGallery() {
     if (!state.isOnline) { 
         showToast('Server offline!', 'error'); 
@@ -48,7 +42,6 @@ export async function saveToGallery() {
         showLoading(false); 
     }
 }
-
 export async function loadGallery() {
     if (!state.isOnline) return;
     try {
@@ -80,7 +73,6 @@ export async function loadGallery() {
         console.error('Gallery load failed:', error); 
     }
 }
-
 export function downloadImage(url) {
     const link = document.createElement('a');
     link.href = url; 

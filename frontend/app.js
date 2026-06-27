@@ -5,9 +5,7 @@ import { initCanvas, setResolution, loadDefaultTemplate, loadGradientPreset, res
 import { undoAction, redoAction } from './js/history.js';
 import { initEventListeners, initKeyboardShortcuts } from './js/events.js';
 import { initFxControls, setBlendMode } from './js/fx.js';
-
 import { loadHtmlComponents } from './js/loader.js';
-
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         await loadHtmlComponents();
@@ -23,7 +21,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error("Gagal memuat komponen HTML:", err);
     }
 });
-
 function initSplashScreen() {
     const splash = document.getElementById('splash-screen');
     const app = document.getElementById('app-container');
@@ -32,12 +29,10 @@ function initSplashScreen() {
         if (app) app.classList.add('visible');
     }, 2200);
 }
-
 export function fitCanvasView() {
     renderCanvas();
     showToast('Tampilan disesuaikan');
 }
-
 export function toggleSidebar() {
     const sidebar = document.querySelector('.app-sidebar');
     const toggleBtn = document.querySelector('.sidebar-toggle-btn i');
@@ -52,28 +47,22 @@ export function toggleSidebar() {
             }
         }
         showToast(isCollapsed ? 'Panel Kontrol disembunyikan' : 'Panel Kontrol ditampilkan');
-        
-        // Sesuaikan ukuran canvas setelah animasi slide-out selesai (300ms)
         setTimeout(() => {
             renderCanvas();
         }, 300);
     }
 }
-
 export function toggleNavbar() {
     const container = document.getElementById('app-container');
     if (container) {
         container.classList.toggle('header-collapsed');
         const isCollapsed = container.classList.contains('header-collapsed');
         showToast(isCollapsed ? 'Navbar disembunyikan' : 'Navbar ditampilkan');
-        
-        // Sesuaikan ukuran canvas setelah animasi selesai (300ms)
         setTimeout(() => {
             renderCanvas();
         }, 300);
     }
 }
-
 export function toggleWorkspaceGrid() {
     state.showGrid = !state.showGrid;
     const workspace = document.getElementById('workspace-area');
@@ -82,11 +71,9 @@ export function toggleWorkspaceGrid() {
     if (toggleBtn) toggleBtn.classList.toggle('active', state.showGrid);
     showToast(state.showGrid ? 'Grid diaktifkan' : 'Grid dinonaktifkan');
 }
-
 export function showShortcutsInfo() {
     showToast('Shortcuts: Ctrl+Z | Ctrl+Y | Ctrl+S (Simpan) | Ctrl+D (Download) | G (Grid) | M (Toggle Menu) | N (Toggle Navbar)');
 }
-
 window.switchTab = switchTab;
 window.setResolution = setResolution;
 window.loadGradientPreset = loadGradientPreset;
