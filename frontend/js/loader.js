@@ -1,7 +1,3 @@
-// ==========================================================================
-// AURAPAPER — HTML COMPONENT LOADER
-// ==========================================================================
-
 export async function loadHtmlComponents() {
     const components = [
         { id: 'splash-container', url: 'components/splash.html' },
@@ -9,7 +5,6 @@ export async function loadHtmlComponents() {
         { id: 'sidebar-container', url: 'components/sidebar.html' },
         { id: 'workspace-container', url: 'components/workspace.html' }
     ];
-
     const promises = components.map(async (comp) => {
         const response = await fetch(comp.url);
         if (!response.ok) throw new Error(`Gagal memuat komponen HTML: ${comp.url}`);
@@ -19,6 +14,5 @@ export async function loadHtmlComponents() {
             element.outerHTML = html;
         }
     });
-
     await Promise.all(promises);
 }

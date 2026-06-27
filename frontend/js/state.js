@@ -1,7 +1,3 @@
-// ==========================================================================
-// AURAPAPER — STATE MODULE
-// ==========================================================================
-
 export const state = {
     backendUrl: window.location.origin.includes('http') ? window.location.origin : 'http://localhost:5000',
     isOnline: false,
@@ -20,5 +16,4 @@ export const state = {
     maxHistory: 30,
     showGrid: true
 };
-
 export const dom = {};
