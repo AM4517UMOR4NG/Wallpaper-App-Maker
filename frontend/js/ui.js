@@ -1,19 +1,12 @@
-// ==========================================================================
-// AURAPAPER — UI MODULE
-// ==========================================================================
-
 import { dom } from './state.js';
-
 export function cacheDomElements() {
     dom.canvas = document.getElementById('wallpaper-canvas');
     dom.ctx = dom.canvas.getContext('2d');
     dom.connectionStatus = document.getElementById('connection-status');
     dom.statusDot = document.getElementById('status-dot');
     dom.statusLabel = document.getElementById('status-label');
-
     dom.imageInput = document.getElementById('image-input');
     dom.dropzone = document.getElementById('upload-dropzone');
-
     dom.sliders = {
         brightness: document.getElementById('slider-brightness'),
         contrast: document.getElementById('slider-contrast'),
@@ -32,7 +25,6 @@ export function cacheDomElements() {
         grayscale: document.getElementById('val-grayscale'),
         sepia: document.getElementById('val-sepia')
     };
-
     dom.textInput = document.getElementById('text-input');
     dom.textFont = document.getElementById('text-font');
     dom.textSize = document.getElementById('slider-text-size');
@@ -45,14 +37,12 @@ export function cacheDomElements() {
     dom.valTextY = document.getElementById('val-text-y');
     dom.textX = document.getElementById('slider-text-x');
     dom.valTextX = document.getElementById('val-text-x');
-
     dom.loading = document.getElementById('canvas-loading');
     dom.toast = document.getElementById('notification-toast');
     dom.toastMessage = document.getElementById('toast-message');
     dom.resolutionBadge = document.getElementById('canvas-resolution-badge');
     dom.galleryGrid = document.getElementById('saved-gallery-grid');
 }
-
 export function switchTab(tabName) {
     document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(el => { 
@@ -61,18 +51,15 @@ export function switchTab(tabName) {
     });
     const content = document.getElementById(`tab-content-${tabName}`);
     if (content) content.classList.add('active');
-    
     const btn = document.getElementById(`tab-btn-${tabName}`);
     if (btn) {
         btn.classList.add('active');
         btn.setAttribute('aria-selected', 'true');
     }
 }
-
 export function showLoading(show) { 
     if (dom.loading) dom.loading.classList.toggle('active', show); 
 }
-
 export function showToast(message, type = 'success') {
     if (!dom.toastMessage || !dom.toast) return;
     dom.toastMessage.innerText = message;
